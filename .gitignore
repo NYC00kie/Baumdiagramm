@@ -114,10 +114,3 @@ flycheck_*.el
 
 
 # End of https://www.gitignore.io/api/emacs
-
-
-
-Todolist.txt
-bannedwords/
-database-backup/
-Version.json
