@@ -1,17 +1,12 @@
 import turtle,time
 
-def drawpath(pos,len,pos2):
-    if len > 6:
-        turtle.goto(pos)
-        turtle.setheading(22.5)
-        turtle.forward(len)
-        turtle.goto(pos)
-        turtle.setheading(-22.5)
-        turtle.forward(len)
-        drawpath(turtle.position(),len*0.7,pos)
-    else:
-        turtle.done()
-        return;
+def drawpath(pos,len):
+    turtle.goto(pos)
+    turtle.setheading(22.5)
+    turtle.forward(len)
+    turtle.goto(pos)
+    turtle.setheading(360-22.5)
+    turtle.forward(20)
 
 if __name__ == "__main__" :
     print("Current Programm path: "+str(__name__))
@@ -24,5 +19,5 @@ if __name__ == "__main__" :
     fourthnbranches=int(input("Wie viele Pfade sollte es in der vierten Stufe geben?"))
     fifthnbranches=int(input("Wie viele Pfade sollte es in der fünften Stufe geben?"))
     turtle.dot(10)
-    poslist = []
-    drawpath(previos_position,100,True)
+    drawpath(previos_position)
+    turtle.done()
