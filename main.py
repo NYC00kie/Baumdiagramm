@@ -1,23 +1,33 @@
-import turtle,time
+import turtle,random
 
-def drawpath(pos,len):
-    turtle.goto(pos)
-    turtle.setheading(22.5)
-    turtle.forward(len)
-    turtle.goto(pos)
-    turtle.setheading(360-22.5)
-    turtle.forward(20)
+def drawpath(len,level):
+
+    oldpos = turtle.position()
+    if level > 0:
+        turtle.setheading(22.5)
+        turtle.pendown()
+        turtle.forward(len)
+        turtle.dot(5)
+        turtle.penup()
+        drawpath(len*0.6,level = level - 1)
+        turtle.goto(oldpos)
+        turtle.setheading(-22.5)
+        turtle.pendown()
+        turtle.forward(len)
+        turtle.dot(5)
+        turtle.penup()
+        drawpath(len*0.6,level = level - 1)
+    else:
+
+        return;
 
 if __name__ == "__main__" :
     print("Current Programm path: "+str(__name__))
     previos_position = turtle.position()
     turtle.color("blue")
     turtle.speed(0)
-    firstnbranches=int(input("Wie viele Pfade sollte es von der Wurzel aus geben?"))
-    secondnbranches=int(input("Wie viele Pfade sollte es in der zweiten Stufe geben?"))
-    thirdnbranches=int(input("Wie viele Pfade sollte es in der drittern Stufe geben?"))
-    fourthnbranches=int(input("Wie viele Pfade sollte es in der vierten Stufe geben?"))
-    fifthnbranches=int(input("Wie viele Pfade sollte es in der fünften Stufe geben?"))
+    layeramaount = int(input("Wie Viele Ebenen wird es geben?"))
+
     turtle.dot(10)
-    drawpath(previos_position)
-    turtle.done()
+
+    drawpath(200,layeramaount)
